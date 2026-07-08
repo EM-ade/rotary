@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <path id="topArc" d="M 40,100 A 60,60 0 0,1 160,100" fill="none"/>
+    <path id="bottomArc" d="M 155,110 A 60,60 0 0,1 45,110" fill="none"/>
+  </defs>
+
+  <!-- Gear teeth -->
+  <g fill="#F7A81B" stroke="#F7A81B" stroke-width="1">
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(0,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(15,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(30,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(45,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(60,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(75,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(90,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(105,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(120,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(135,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(150,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(165,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(180,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(195,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(210,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(225,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(240,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(255,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(270,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(285,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(300,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(315,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(330,100,100)"/>
+    <rect x="94" y="2" width="12" height="18" rx="2" transform="rotate(345,100,100)"/>
+  </g>
+
+  <!-- Outer rim -->
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#F7A81B" stroke-width="6"/>
+  <circle cx="100" cy="100" r="72" fill="none" stroke="#F7A81B" stroke-width="3"/>
+
+  <!-- Spokes -->
+  <g stroke="#F7A81B" stroke-width="6" stroke-linecap="round">
+    <line x1="100" y1="100" x2="100" y2="32"/>
+    <line x1="100" y1="100" x2="159" y2="66"/>
+    <line x1="100" y1="100" x2="159" y2="134"/>
+    <line x1="100" y1="100" x2="100" y2="168"/>
+    <line x1="100" y1="100" x2="41" y2="134"/>
+    <line x1="100" y1="100" x2="41" y2="66"/>
+  </g>
+
+  <!-- Center hub -->
+  <circle cx="100" cy="100" r="18" fill="#F7A81B"/>
+  <circle cx="100" cy="100" r="10" fill="#17458F"/>
+  <circle cx="100" cy="100" r="5" fill="#F7A81B"/>
+
+  <!-- Key notch in center -->
+  <rect x="97" y="82" width="6" height="12" rx="1" fill="#F7A81B"/>
+
+  <!-- ROTARY text on top arc -->
+  <text font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="16" fill="#17458F" letter-spacing="4">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">ROTARY</textPath>
+  </text>
+
+  <!-- INTERNATIONAL text on bottom arc -->
+  <text font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="13" fill="#17458F" letter-spacing="2.5">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">INTERNATIONAL</textPath>
+  </text>
+</svg>

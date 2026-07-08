@@ -1,0 +1,1339 @@
+/* ============================================
+   ROTARY CLUB OF LAGOS — DESIGN SYSTEM
+   65 Years of Service Above Self
+   ============================================ */
+
+/* --- TOKENS --- */
+:root {
+  /* Colors */
+  --royal-blue: #17458F;
+  --rotary-gold: #F7A81B;
+  --deep-indigo: #0D1B3E;
+  --warm-linen: #F5F3EF;
+  --slate: #5B7A99;
+  --white: #FFFFFF;
+  --gold-muted: #D4920E;
+  --blue-light: #E8EDF4;
+  --indigo-soft: #162D54;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Layout */
+  --max-width: 1120px;
+  --nav-height: 72px;
+
+  /* Focus */
+  --focus-outline: 2px solid var(--rotary-gold);
+  --focus-offset: 3px;
+}
+
+/* --- RESET & BASE --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--deep-indigo);
+  background-color: var(--warm-linen);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--royal-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--rotary-gold);
+}
+
+/* Focus states — visible keyboard navigation */
+:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--deep-indigo);
+}
+
+h1 {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+h4 {
+  font-size: 1.125rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+p {
+  max-width: 65ch;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  letter-spacing: 0.02em;
+}
+
+.gold-text {
+  color: var(--rotary-gold);
+}
+
+.blue-text {
+  color: var(--royal-blue);
+}
+
+/* --- LAYOUT --- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+
+.section {
+  padding-block: var(--space-3xl);
+}
+
+.section--tight {
+  padding-block: var(--space-2xl);
+}
+
+/* The gold spine — signature element */
+.spine {
+  position: relative;
+}
+
+.spine::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--rotary-gold);
+}
+
+/* --- NAVIGATION --- */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  background: var(--deep-indigo);
+  border-bottom: 3px solid var(--rotary-gold);
+  display: flex;
+  align-items: center;
+}
+
+.nav__inner {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  position: relative;
+}
+
+.nav__brand-logo {
+  height: 28px;
+  width: auto;
+  opacity: 0.6;
+  flex-shrink: 0;
+  align-self: center;
+  transition: opacity 0.3s ease;
+}
+
+.nav__brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.nav__brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--white);
+  letter-spacing: 0.01em;
+}
+
+.nav__brand-sub {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.nav__links {
+  display: flex;
+  list-style: none;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.nav__links a {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: var(--space-xs) 0;
+  position: relative;
+  opacity: 0.8;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.nav__links a:hover,
+.nav__links a[aria-current="page"] {
+  opacity: 1;
+  color: var(--rotary-gold);
+}
+
+.nav__links a[aria-current="page"]::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--rotary-gold);
+}
+
+.nav__toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-sm);
+  color: var(--white);
+}
+
+.nav__toggle svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+/* --- MAIN CONTENT OFFSET --- */
+.page-content {
+  padding-top: calc(var(--nav-height) + var(--space-3xl));
+  padding-bottom: var(--space-3xl);
+}
+
+/* --- HERO (Home) --- */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  background: var(--deep-indigo);
+  overflow: hidden;
+  padding-top: var(--nav-height);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+}
+
+.hero__year {
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+  color: var(--rotary-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: var(--space-md);
+  display: block;
+  /* Motion: starts hidden, animated in by @keyframes below */
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  animation: hero-wipe-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+}
+
+.hero__title {
+  color: var(--white);
+  margin-bottom: var(--space-lg);
+  /* Motion: starts hidden, animated in by @keyframes below */
+  opacity: 0;
+  transform: translateY(12px) scale(0.96);
+  animation: hero-title-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+}
+
+.hero__title em {
+  font-style: italic;
+  color: var(--rotary-gold);
+}
+
+.hero__subtitle {
+  font-size: 1.125rem;
+  color: var(--slate);
+  margin-bottom: var(--space-xl);
+  max-width: 480px;
+  line-height: 1.7;
+  /* Motion: starts hidden, animated in by @keyframes below */
+  opacity: 0;
+  animation: hero-fade-in 0.4s ease 0.7s forwards;
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  /* Motion: starts hidden, animated in by @keyframes below */
+  opacity: 0;
+  animation: hero-fade-in 0.4s ease 0.9s forwards;
+}
+
+/* Rotary wheel watermark — signature background element */
+.hero__wheel {
+  position: absolute;
+  right: -8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 55vw;
+  max-width: 600px;
+  opacity: 0;
+  z-index: 1;
+  /* Motion: fades in first, establishing ambient backdrop */
+  animation: hero-wheel-in 0.8s ease 0s forwards;
+}
+
+.hero__wheel img {
+  width: 100%;
+  height: auto;
+}
+
+/* --- BUTTONS --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.875rem 1.75rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn--primary {
+  background: var(--rotary-gold);
+  color: var(--deep-indigo);
+  border-color: var(--rotary-gold);
+}
+
+.btn--primary:hover {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--deep-indigo);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--slate);
+}
+
+.btn--outline:hover {
+  border-color: var(--rotary-gold);
+  color: var(--rotary-gold);
+}
+
+.btn--dark {
+  background: var(--royal-blue);
+  color: var(--white);
+  border-color: var(--royal-blue);
+}
+
+.btn--dark:hover {
+  background: var(--deep-indigo);
+  border-color: var(--deep-indigo);
+}
+
+/* --- AREAS OF FOCUS STRIP --- */
+.focus-strip {
+  background: var(--white);
+  border-top: 1px solid var(--blue-light);
+  border-bottom: 1px solid var(--blue-light);
+  padding: var(--space-xl) 0;
+}
+
+.focus-strip__label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--slate);
+  margin-bottom: var(--space-lg);
+}
+
+.focus-strip__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  list-style: none;
+}
+
+.focus-strip__item {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--royal-blue);
+  padding: var(--space-sm) var(--space-lg);
+  border-right: 1px solid var(--blue-light);
+  white-space: nowrap;
+}
+
+.focus-strip__item:last-child {
+  border-right: none;
+}
+
+/* --- SECTION HEADER --- */
+.section-header {
+  margin-bottom: var(--space-2xl);
+}
+
+.section-header__kicker {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--rotary-gold);
+  margin-bottom: var(--space-sm);
+  margin-top:var(--space-sm);
+  display: block;
+}
+
+.section-header__title {
+  margin-bottom: var(--space-md);
+}
+
+.section-header__rule {
+  width: 60px;
+  height: 3px;
+  background: var(--rotary-gold);
+  border: none;
+  margin-top: var(--space-lg);
+}
+
+/* --- STAT ROW --- */
+.stats-band {
+  background: var(--deep-indigo);
+  padding: var(--space-xl) 0;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.stat {
+  text-align: center;
+  padding: var(--space-lg) var(--space-md);
+  position: relative;
+}
+
+/* Vertical gold dividers between stats */
+.stat:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: rgba(247, 168, 27, 0.3);
+}
+
+.stat__number {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.stat__label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--rotary-gold);
+}
+
+/* --- TIMELINE (About page) --- */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--rotary-gold);
+}
+
+.timeline__item {
+  position: relative;
+  padding-bottom: var(--space-2xl);
+}
+
+.timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline__dot {
+  position: absolute;
+  left: -40px;
+  top: 4px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--rotary-gold);
+}
+
+.timeline__year {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--rotary-gold);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-xs);
+  display: block;
+}
+
+.timeline__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--deep-indigo);
+  margin-bottom: var(--space-xs);
+}
+
+.timeline__desc {
+  font-size: 0.9375rem;
+  color: var(--slate);
+  max-width: 55ch;
+  line-height: 1.7;
+}
+
+/* --- LEADERSHIP --- */
+.president-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  padding: var(--space-2xl);
+  background: var(--white);
+  border-left: 4px solid var(--rotary-gold);
+}
+
+.president-card__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  color: var(--deep-indigo);
+  margin-bottom: var(--space-xs);
+}
+
+.president-card__title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--rotary-gold);
+  margin-bottom: var(--space-lg);
+}
+
+.president-card__bio {
+  font-size: 1rem;
+  color: var(--slate);
+  line-height: 1.8;
+  max-width: 60ch;
+}
+
+.president-card__legacy {
+  margin-top: var(--space-lg);
+  padding: var(--space-lg);
+  background: var(--blue-light);
+  font-size: 0.9375rem;
+  color: var(--royal-blue);
+  border-left: 3px solid var(--royal-blue);
+  line-height: 1.7;
+}
+
+/* Board grid */
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.board-member {
+  padding: var(--space-lg);
+  background: var(--white);
+  border-bottom: 2px solid var(--blue-light);
+  transition: border-color 0.2s ease;
+}
+
+.board-member:hover {
+  border-bottom-color: var(--rotary-gold);
+}
+
+.board-member__role {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--rotary-gold);
+  margin-bottom: var(--space-xs);
+  display: block;
+}
+
+.board-member__name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--deep-indigo);
+}
+
+/* --- INSTALLATION / INVITATION --- */
+.invitation {
+  max-width: 680px;
+  margin-inline: auto;
+  text-align: center;
+  padding: var(--space-3xl) var(--space-lg);
+  background: var(--white);
+  border: 1px solid var(--blue-light);
+}
+
+.invitation__kicker {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--rotary-gold);
+  margin-bottom: var(--space-lg);
+}
+
+.invitation__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  color: var(--deep-indigo);
+  margin-bottom: var(--space-sm);
+  line-height: 1.2;
+}
+
+.invitation__subtitle {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-style: italic;
+  color: var(--royal-blue);
+  margin-bottom: var(--space-2xl);
+}
+
+.invitation__rule {
+  width: 60px;
+  height: 3px;
+  background: var(--rotary-gold);
+  border: none;
+  margin: var(--space-xl) auto;
+}
+
+.invitation__detail {
+  margin-bottom: var(--space-lg);
+}
+
+.invitation__detail-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--slate);
+  margin-bottom: var(--space-xs);
+  display: block;
+}
+
+.invitation__detail-value {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--deep-indigo);
+}
+
+.invitation__detail-note {
+  font-size: 0.875rem;
+  color: var(--slate);
+  margin-top: var(--space-xs);
+}
+
+/* Dignitary list */
+.dignitary-list {
+  list-style: none;
+  text-align: left;
+  max-width: 500px;
+  margin-inline: auto;
+  margin-top: var(--space-xl);
+}
+
+.dignitary-list li {
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--blue-light);
+  display: flex;
+  flex-direction: column;
+}
+
+.dignitary-list__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--deep-indigo);
+}
+
+.dignitary-list__role {
+  font-size: 0.8125rem;
+  color: var(--slate);
+}
+
+/* Committee list */
+.committee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.committee-member {
+  padding: var(--space-md);
+  background: var(--blue-light);
+  font-size: 0.9375rem;
+}
+
+.committee-member__role {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--royal-blue);
+  margin-bottom: var(--space-xs);
+  display: block;
+}
+
+.committee-member__name {
+  font-weight: 600;
+  color: var(--deep-indigo);
+}
+
+/* --- PRESIDENTS LIST --- */
+.presidents-list {
+  list-style: none;
+}
+
+.presidents-list__item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--space-lg);
+  padding: var(--space-lg) 0;
+  border-bottom: 1px solid var(--blue-light);
+  align-items: baseline;
+}
+
+.presidents-list__year {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--rotary-gold);
+  letter-spacing: 0.05em;
+}
+
+.presidents-list__name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--deep-indigo);
+}
+
+.presidents-list__note {
+  font-size: 0.8125rem;
+  color: var(--slate);
+  margin-top: var(--space-xs);
+  font-style: italic;
+}
+
+/* --- CONTACT --- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-2xl);
+}
+
+.contact-block__label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--rotary-gold);
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+.contact-block__value {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--deep-indigo);
+  line-height: 1.5;
+}
+
+.contact-block__value a {
+  color: var(--deep-indigo);
+}
+
+.contact-block__value a:hover {
+  color: var(--rotary-gold);
+}
+
+.social-links {
+  display: flex;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+  list-style: none;
+}
+
+.social-links a {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--royal-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.social-links a:hover {
+  color: var(--rotary-gold);
+}
+
+/* --- FOOTER --- */
+.footer {
+  background: var(--deep-indigo);
+  color: var(--white);
+  padding: var(--space-2xl) 0;
+  border-top: 3px solid var(--rotary-gold);
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.footer__brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: var(--space-xs);
+}
+
+.footer__motto {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--rotary-gold);
+}
+
+.footer__address {
+  font-size: 0.875rem;
+  color: var(--slate);
+  line-height: 1.7;
+}
+
+.footer__links {
+  list-style: none;
+  text-align: right;
+}
+
+.footer__links a {
+  font-size: 0.8125rem;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.footer__links a:hover {
+  color: var(--rotary-gold);
+}
+
+.footer__links li {
+  margin-bottom: var(--space-sm);
+}
+
+.footer__copy {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--slate);
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: var(--space-lg);
+}
+
+.quote__text {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-style: italic;
+  color: var(--deep-indigo);
+  line-height: 1.6;
+  max-width: 55ch;
+  /* Motion: hidden until quote--reveal is added by JS */
+  opacity: 0;
+  transition: opacity 0.5s ease 0.2s;
+}
+
+.quote__attr {
+  margin-top: var(--space-lg);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--slate);
+  /* Motion: hidden until quote--reveal is added by JS */
+  opacity: 0;
+  transition: opacity 0.5s ease 0.2s;
+}
+
+/* --- MOBILE NAV OVERLAY --- */
+.nav__overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 27, 62, 0.95);
+  z-index: 99;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__overlay.is-open {
+  display: flex;
+}
+
+.nav__overlay-links {
+  list-style: none;
+  text-align: center;
+}
+
+.nav__overlay-links li {
+  margin-bottom: var(--space-xl);
+}
+
+.nav__overlay-links a {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+
+.nav__overlay-links a:hover,
+.nav__overlay-links a[aria-current="page"] {
+  color: var(--rotary-gold);
+}
+
+.nav__close {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: var(--space-sm);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .nav__links {
+    display: none;
+  }
+
+  .nav__toggle {
+    display: block;
+  }
+
+  .hero__wheel {
+    opacity: 0.04;
+    right: -15%;
+  }
+
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    text-align: left;
+  }
+
+  .footer__links {
+    text-align: left;
+  }
+
+  .presidents-list__item {
+    grid-template-columns: 80px 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --space-3xl: 3.5rem;
+    --space-2xl: 2.5rem;
+  }
+
+  .hero {
+    min-height: 90vh;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat:nth-child(2)::after {
+    display: none;
+  }
+
+  .board-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .focus-strip__items {
+    flex-direction: column;
+  }
+
+  .focus-strip__item {
+    border-right: none;
+    border-bottom: 1px solid var(--blue-light);
+    padding: var(--space-md) 0;
+  }
+
+  .focus-strip__item:last-child {
+    border-bottom: none;
+  }
+
+  .president-card {
+    padding: var(--space-lg);
+  }
+
+  .invitation {
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  .presidents-list__item {
+    grid-template-columns: 1fr;
+    gap: var(--space-xs);
+  }
+
+  .committee-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- PAGE-SPECIFIC: ABOUT --- */
+.about-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.about-intro__text {
+  font-size: 1.0625rem;
+  color: var(--slate);
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .about-intro {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- PAGE-SPECIFIC: HOME HIGHLIGHTS --- */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+}
+
+.highlight-card {
+  padding: var(--space-xl);
+  background: var(--white);
+  border-left: 3px solid var(--rotary-gold);
+  border-top: none;
+  position: relative;
+}
+
+.highlight-card__kicker {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--rotary-gold);
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+.highlight-card__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--deep-indigo);
+  margin-bottom: var(--space-sm);
+}
+
+.highlight-card__text {
+  font-size: 0.9375rem;
+  color: var(--slate);
+  line-height: 1.7;
+}
+
+/* --- FADE-IN ANIMATION --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   MOTION LAYER — Page load, scroll reveals,
+   micro-interactions. Added atop existing
+   parallax system; does not modify it.
+   ============================================ */
+
+/* --- PAGE-LOAD KEYFRAMES (hero only) --- */
+
+@keyframes hero-wheel-in {
+  from { opacity: 0; }
+  to   { opacity: 0.15; }
+}
+
+@keyframes hero-wipe-in {
+  from { clip-path: inset(0 100% 0 0); opacity: 0; }
+  to   { clip-path: inset(0 0% 0 0);  opacity: 1; }
+}
+
+@keyframes hero-title-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes hero-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* --- QUOTE REVEAL (scroll-triggered via JS) --- */
+
+.quote {
+  position: relative;
+  padding: var(--space-2xl);
+  padding-left: calc(var(--space-2xl) + 20px);
+  background: var(--white);
+  border-left: 4px solid transparent;
+  overflow: hidden;
+}
+
+.quote::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--rotary-gold);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* When JS adds .quote--reveal */
+.quote--reveal::before {
+  transform: scaleY(1);
+}
+
+.quote--reveal .quote__text,
+.quote--reveal .quote__attr {
+  opacity: 1;
+}
+
+/* --- HIGHLIGHT CARD STAGGER --- */
+
+/* Override inline transition-delay set by .fade-in */
+.highlight-card:nth-child(2).is-visible {
+  transition-delay: 0.12s;
+}
+
+.highlight-card:nth-child(3).is-visible {
+  transition-delay: 0.24s;
+  transition-duration: 0.6s;
+}
+
+/* --- STAT HOVER MICRO-INTERACTION --- */
+
+.stat:not(:last-child)::after {
+  transition: background 0.2s ease;
+}
+
+.stat:hover:not(:last-child)::after {
+  background: rgba(247, 168, 27, 0.6);
+}
+
+/* --- HIGHLIGHT CARD HOVER --- */
+
+.highlight-card {
+  transition: border-left-color 0.2s ease;
+}
+
+.highlight-card:hover {
+  border-left-color: var(--royal-blue);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  /* Existing fade-in */
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  /* Hero page-load sequence: instant appearance */
+  .hero__year,
+  .hero__title,
+  .hero__subtitle,
+  .hero__actions,
+  .hero__wheel {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    animation: none;
+  }
+
+  /* Quote reveal: instant, no border draw */
+  .quote::before {
+    transform: scaleY(1);
+    transition: none;
+  }
+
+  .quote__text,
+  .quote__attr {
+    opacity: 1;
+    transition: none;
+  }
+
+  /* Hover effects: remove lift, keep color feedback */
+  .highlight-card:hover {
+    border-left-color: var(--royal-blue);
+  }
+
+  .stat:hover:not(:last-child)::after {
+    background: rgba(247, 168, 27, 0.6);
+  }
+}
