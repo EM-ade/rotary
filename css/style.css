@@ -372,10 +372,10 @@ p {
   transform: translateY(-50%);
   width: 55vw;
   max-width: 600px;
-  opacity: 0;
+  opacity: 0.4;
   z-index: 1;
-  /* Motion: fades in first, establishing ambient backdrop */
-  animation: hero-wheel-in 0.8s ease 0s forwards;
+  /* Motion: image scales in with a subtle drift */
+  animation: hero-image-in 1s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;
 }
 
 .hero__wheel img {
@@ -1214,6 +1214,11 @@ p {
   to   { opacity: 0.15; }
 }
 
+@keyframes hero-image-in {
+  from { opacity: 0; transform: translateY(-50%) scale(0.92) translateX(20px); }
+  to   { opacity: 0.4; transform: translateY(-50%) scale(1) translateX(0); }
+}
+
 @keyframes hero-wipe-in {
   from { clip-path: inset(0 100% 0 0); opacity: 0; }
   to   { clip-path: inset(0 0% 0 0);  opacity: 1; }
@@ -1310,8 +1315,8 @@ p {
   .hero__subtitle,
   .hero__actions,
   .hero__wheel {
-    opacity: 1;
-    transform: none;
+    opacity: 0.4;
+    transform: translateY(-50%);
     clip-path: none;
     animation: none;
   }
